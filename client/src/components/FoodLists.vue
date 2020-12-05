@@ -12,7 +12,7 @@ export default {
     name: 'foods-list',
     props: ['foods'],
     components: {
-        'list-component': ListComponent
+        'food-select': FoodSelect
     }
 }
 </script>
