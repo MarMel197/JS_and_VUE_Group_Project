@@ -1,15 +1,15 @@
 <template>
-    <li v-on:click="handleClick">{{region.name}}</li>
+    <li v-on:click="handleClick">{{food.name}}</li>
 </template>
 
 <script>
 import { eventBus } from '../main.js'
 export default {
-    name: 'region-select',
-    props: ['region'],
+    name: 'food-select',
+    props: ['food'],
     methods: {
         handleClick(){
-            eventBus.$emit('region-selected', this.region)
+            eventBus.$emit('food-selected', this.food)
         }
     }
 }
