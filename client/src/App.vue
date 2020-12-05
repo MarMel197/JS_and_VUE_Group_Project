@@ -29,6 +29,20 @@ export default {
         "food-list": FoodList,
         "food-detail": FoodDetail,
         "food-select": FoodSelect
+    },
+    mounted(){
+        this.fetchFoods();
+
+        eventBus.$on('add-food', (food) => {
+        FoodService.addFood(food)
+        .then(foodWithId => this.foods.push(foodWithId));
+    });
+
+        eventBus.$on('delete-food', (id) => {
+        FoodService.deleteFood(id);
+        const index = this.foods.findIndex(food => food._id === id);
+        this.foods.splice(index, 1);
+    });
     }
     
 }
