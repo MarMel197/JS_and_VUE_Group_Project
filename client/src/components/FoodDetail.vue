@@ -17,7 +17,7 @@
 <script>
 export default {
     name: 'food-detail',
-    
+    props: ['food']
 
 }
 </script>
