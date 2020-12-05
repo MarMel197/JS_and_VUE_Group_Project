@@ -4,10 +4,10 @@
 
 <script>
 
-import RegionList from "./components/RegionList.vue" 
+import RegionList from "./components/RegionsList.vue" 
 import RegionSelect from "./components/RegionSelect.vue" 
 import RegionDetail from "./components/RegionDetail.vue" 
-import FoodList from "./components/FoodList.vue" 
+import FoodList from "./components/FoodsList.vue" 
 import FoodDetail from "./components/FoodDetail.vue" 
 import FoodSelect from "./components/FoodSelect.vue" 
 import { eventBus } from './main.js';
