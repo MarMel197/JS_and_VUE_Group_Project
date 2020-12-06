@@ -1,6 +1,6 @@
 <template lang="html">
-	<form id="menus-form" v-on:submit.prevent="handleSubmit">
-		<h2>Add a Food</h2>
+	<form id="dishes-form" v-on:submit.prevent="handleSubmit">
+		<h2>Add a Dish</h2>
 		<div class="formWrap">
 			<label for="name">Name:</label>
 			<input type="text" id="name" v-model="name" />
@@ -22,7 +22,7 @@
 import { eventBus } from '../main';
 
 export default {
-	name: 'menus-form',
+	name: 'dishes-form',
 	data() {
 		return {
 			name: '',
@@ -38,8 +38,8 @@ export default {
 				origin: this.origin
 			};
 
-			eventBus.$emit('submit-menu', payload);
-			this.name = this.description = this.orign = '';
+			eventBus.$emit('submit-dish', payload);
+			this.name = this.description = this.origin = ''
 		}
 	}
 }

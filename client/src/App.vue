@@ -1,57 +1,61 @@
 <template>
-    <div id="app">
-        <menus-form />
-    </div>
+  <div id="app">
+    <dishes-form />
+    <dishes-grid :dishes="dishes"/>
+  </div>
 </template>
 
 <script>
-
-import RegionList from "./components/RegionsList.vue" 
-import RegionSelect from "./components/RegionSelect.vue" 
-import RegionDetail from "./components/RegionDetail.vue" 
-import FoodList from "./components/FoodsList.vue" 
-import FoodDetail from "./components/FoodDetail.vue" 
-import FoodSelect from "./components/FoodSelect.vue" 
-import MenusForm from "./components/MenusForm.vue"
-import { eventBus } from './main.js';
+import { eventBus } from './main';
+import DishesForm from './components/DishesForm';
+import DishesGrid from './components/DishesGrid';
+import DishService from './services/DishService'
 
 export default {
-    name: "app",
-    data() {
-        return{
-            foods: [],
-            selectedFood: null,
-            regions: [],
-            selectedRegion: null
-        }
-    },
-    components: {
-        "region-list": RegionList,
-        "region-select": RegionSelect,
-        "region-detail": RegionDetail,
-        "food-list": FoodList,
-        "food-detail": FoodDetail,
-        "food-select": FoodSelect,
-        "menus-form": MenusForm
-    },
-    mounted(){
-        this.fetchFoods();
+  name: 'app',
+  components: {
+    'dishes-form': DishesForm,
+    'dishes-grid': DishesGrid
+  },
+  data() {
+    return {
+      dishes: []
+    };
+  },
+	mounted() {
+    this.fetchdishes();
 
-        eventBus.$on('add-food', (food) => {
-        FoodService.addFood(food)
-        .then(foodWithId => this.foods.push(foodWithId));
+    eventBus.$on('submit-dish', payload => {
+      DishService.postDish(payload)
+		.then(dish => this.dishes.push(dish));
     });
 
-        eventBus.$on('delete-food', (id) => {
-        FoodService.deleteFood(id);
-        const index = this.foods.findIndex(food => food._id === id);
-        this.foods.splice(index, 1);
+    eventBus.$on('delete-dish', id => {
+      DishService.deleteDish(id)
+        .then(() => {
+          const index = this.dishes.findIndex(dish => dish._id === id);
+          this.dishes.splice(index, 1);
+        });
     });
+  },
+  methods: {
+    fetchdishes() {
+      DishService.getDishes()
+        .then(dishes => this.dishes = dishes);
     }
-    
+  }
 }
 </script>
 
 <style>
+html {
+  height: 100%;
+}
 
+body {
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 </style>
