@@ -13,6 +13,9 @@ import DishDetail from './components/DishDetail';
 import DishesList from './components/DishesList';
 import DishService from './services/DishService'
 
+
+
+
 export default {
   name: 'app',
   components: {
@@ -53,7 +56,8 @@ export default {
       DishService.getDishes()
         .then(dishes => this.dishes = dishes);
     }
-  }
+  },
+  
 }
 </script>
 
