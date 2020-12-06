@@ -10,6 +10,7 @@ import RegionDetail from "./components/RegionDetail.vue"
 import FoodList from "./components/FoodsList.vue" 
 import FoodDetail from "./components/FoodDetail.vue" 
 import FoodSelect from "./components/FoodSelect.vue" 
+import FoodForm from "./components/FoodForm.vue"
 import { eventBus } from './main.js';
 
 export default {
@@ -28,7 +29,8 @@ export default {
         "region-detail": RegionDetail,
         "food-list": FoodList,
         "food-detail": FoodDetail,
-        "food-select": FoodSelect
+        "food-select": FoodSelect,
+        "food-form": FoodForm
     },
     mounted(){
         this.fetchFoods();
