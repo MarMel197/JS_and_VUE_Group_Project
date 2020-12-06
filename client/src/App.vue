@@ -1,14 +1,5 @@
 <template>
-<div class="body">
-    <header class="header">British Best Bites</header>
-    <div class="main-container">
-    <label for="food-select">Pick a food:</label>
-    <select id="food-select" v-model="selectedFood">
-      <option disabled value="">Select a food</option>
-      <option v-for="food in foods" :key="food.id" :value="food" >{{food.name}}</option>
-    </select>
-    </div>
-</div>
+
 </template>
 
 <script>
