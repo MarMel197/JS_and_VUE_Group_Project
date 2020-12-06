@@ -1,5 +1,7 @@
 <template>
-
+    <div id="app">
+        <menus-form />
+    </div>
 </template>
 
 <script>
@@ -10,7 +12,7 @@ import RegionDetail from "./components/RegionDetail.vue"
 import FoodList from "./components/FoodsList.vue" 
 import FoodDetail from "./components/FoodDetail.vue" 
 import FoodSelect from "./components/FoodSelect.vue" 
-import FoodForm from "./components/FoodForm.vue"
+import MenusForm from "./components/MenusForm.vue"
 import { eventBus } from './main.js';
 
 export default {
@@ -30,7 +32,7 @@ export default {
         "food-list": FoodList,
         "food-detail": FoodDetail,
         "food-select": FoodSelect,
-        "food-form": FoodForm
+        "menus-form": MenusForm
     },
     mounted(){
         this.fetchFoods();
