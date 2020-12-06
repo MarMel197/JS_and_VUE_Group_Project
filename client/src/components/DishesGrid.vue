@@ -15,3 +15,11 @@ export default {
 	props: ['dishes']
 }
 </script>
+
+<style lang="css" scoped>
+#dishesGrid {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+}
+</style>

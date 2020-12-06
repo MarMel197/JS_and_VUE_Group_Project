@@ -9,17 +9,22 @@
 import { eventBus } from './main';
 import DishesForm from './components/DishesForm';
 import DishesGrid from './components/DishesGrid';
+import DishDetail from './components/DishDetail';
+import DishesList from './components/DishesList';
 import DishService from './services/DishService'
 
 export default {
   name: 'app',
   components: {
     'dishes-form': DishesForm,
-    'dishes-grid': DishesGrid
+    'dishes-grid': DishesGrid,
+    'dishes-list': DishesList
   },
   data() {
     return {
-      dishes: []
+      dishes: [],
+      selectedDish: null
+
     };
   },
 	mounted() {
@@ -37,6 +42,11 @@ export default {
           this.dishes.splice(index, 1);
         });
     });
+    
+    eventBus.$on("dish-selected", dish => (this.selectedDish = dish));
+    //     eventBus.$on('dish-selected', (dish) => {
+    //   this.selectedDish = dish;
+    // }); 
   },
   methods: {
     fetchdishes() {
