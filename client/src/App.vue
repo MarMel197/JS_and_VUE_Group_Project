@@ -1,20 +1,21 @@
 <template>
   <div id="app">
-    <dishes-form />
-    <dishes-grid :dishes="dishes"/>
+
+    <header class="header">Best British Bites!</header>
+    <dishes-form id="dishes-form"/>
     <chart id="uk"></chart>
+    <dishes-grid :dishes="dishes"/>
+
   </div>
 </template>
 
 <script>
 import { eventBus } from './main';
-// import {Chart} from ‘highcharts-vue’;
 import DishesForm from './components/DishesForm';
 import DishesGrid from './components/DishesGrid';
 import DishDetail from './components/DishDetail';
 import DishesList from './components/DishesList';
 import Chart from "./components/Chart";
-// import DishMap from './components/DishMap';
 import DishService from './services/DishService'
 
 
@@ -65,7 +66,26 @@ export default {
         .then(dishes => this.dishes = dishes);
     }
   },
-  handler() {
+
+    getScottishFoods() {
+      const scottishFoods = menu.filter(function(dish) {
+        return dish.region === "gb-sct"
+      });
+    },
+
+    getEnglishFoods() {
+      const englishFoods = menu.filter(function(dish) {
+        return dish.region === "gb-eng"
+      });
+    },
+
+    getIrishFoods() {
+      const irishFoods = menu.filter(function(dish) {
+        return dish.region === "gb-nir"
+      });
+    },
+
+    handler() {
       var args = arguments;
       for (var arg of args) {
         if (arg instanceof Function) {
@@ -81,10 +101,26 @@ html {
   height: 100%;
 }
 
+.header {
+    font-family: 'Schoolbell', cursive;
+    margin: 0px;
+    padding: 30px;
+    text-align: center;
+    color: rgb(11, 86, 133);
+    font-size: 60px;
+}
+
+
 body {
+
   height: 100%;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+#dishes-form {
+    /* display: flex; */
+
 }
 </style>

@@ -5,11 +5,12 @@
       @mouseover="hover = true"
       @mouseleave="hover = false"
     >
-      <p><i><b>See Description</b></i></p>
-      <span v-if="hover">{{dish.description}}</span>
+      <p><i><b>See Info</b></i></p>
+      <span v-if="hover">{{dish.description}} <p><p>{{ dish.origin }}</p><img class="image" :src="dish.image_url "/> </p></span>
     </span>
-    <!-- <p>{{ dish.description }}</p> -->
-    <p>{{ dish.origin }}</p>
+
+  
+    
     <button v-on:click="handleDelete(dish._id)">Delete dish</button>
   </div>
 </template>
@@ -60,4 +61,8 @@ h2 {
 	padding: 0;
 	margin: 0;
 } 
+
+.image {
+  height: 100px;
+}
 </style>
