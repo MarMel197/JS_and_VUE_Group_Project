@@ -2,17 +2,23 @@
   <div id="app">
     <dishes-form />
     <dishes-grid :dishes="dishes"/>
+    <chart id="uk"></chart>
   </div>
 </template>
 
 <script>
 import { eventBus } from './main';
+// import {Chart} from ‘highcharts-vue’;
 import DishesForm from './components/DishesForm';
 import DishesGrid from './components/DishesGrid';
 import DishDetail from './components/DishDetail';
 import DishesList from './components/DishesList';
-import DishMap from './'
+import Chart from "./components/Chart";
+// import DishMap from './components/DishMap';
 import DishService from './services/DishService'
+
+
+
 
 
 
@@ -22,7 +28,8 @@ export default {
   components: {
     'dishes-form': DishesForm,
     'dishes-grid': DishesGrid,
-    'dishes-list': DishesList
+    'dishes-list': DishesList,
+    'chart': Chart
   },
   data() {
     return {
@@ -58,8 +65,15 @@ export default {
         .then(dishes => this.dishes = dishes);
     }
   },
-  
-}
+  handler() {
+      var args = arguments;
+      for (var arg of args) {
+        if (arg instanceof Function) {
+          arg();
+        }
+      }
+    }
+  };
 </script>
 
 <style>
