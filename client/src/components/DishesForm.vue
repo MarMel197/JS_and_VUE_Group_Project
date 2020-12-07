@@ -14,7 +14,7 @@
 			<input type="text" id="origin" v-model="origin" />
 		</div>
 
-		<input type="submit" value="Save" id="save"/>
+		<input class="submitbutton" type="submit" value="Save" id="save"/>
 	</form>
 </template>
 
@@ -52,11 +52,25 @@ h2 {
 }
 
 form {
-	width: 75%;
+	/* display: flex;
+	justify-content: space-evenly; */
+	width: 25%;
 	margin: 0 auto;
 	background: rgba(255, 255, 255, 0.7);
 	padding: 20px;
 	margin-bottom: 40px;
+	align-items: center;
+}
+
+.submitbutton {
+	  font-family: 'Schoolbell', cursive;
+	color: #fff;
+	border: none;
+	font-size: 16px;
+	padding: 8px;
+	margin-top: 10px;
+	background: #2c9609;
+  border-radius: 5px;
 }
 
 label {

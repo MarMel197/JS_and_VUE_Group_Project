@@ -46,15 +46,18 @@ hover: false,
 	background: rgba(255, 255, 255, 0.7);
 	margin-bottom: 20px;
 	padding: 25px;
+  border-radius: 5px;
 }
 
 button {
+  font-family: 'Schoolbell', cursive;
 	color: #fff;
 	border: none;
-	font-size: 18px;
-	padding: 10px;
+	font-size: 16px;
+	padding: 8px;
 	margin-top: 10px;
 	background: #F55536;
+  border-radius: 5px;
 }
 
 h2 {

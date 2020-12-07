@@ -4,6 +4,7 @@
     <header class="header">Best British Bites!</header>
     <dishes-form id="dishes-form"/>
     <chart id="uk"></chart>
+    <br>
     <dishes-grid :dishes="dishes"/>
 
   </div>
@@ -103,7 +104,7 @@ html {
 
 .header {
     font-family: 'Schoolbell', cursive;
-    margin: 0px;
+    margin: 10px;
     padding: 30px;
     text-align: center;
     color: rgb(11, 86, 133);
@@ -112,8 +113,9 @@ html {
 
 
 body {
-
+  font-family: 'Schoolbell', cursive;
   height: 100%;
+  background-color: rgba(197, 244, 255, 0.536);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
