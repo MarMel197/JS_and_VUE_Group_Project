@@ -1,9 +1,9 @@
 <template>
-<div>
+<div id="container">
     <highcharts :constructorType="'mapChart'" class="hc" :options="chartOptions" ref="chart"></highcharts>
 </div>
-<!-- 
-<div id="container" style="max-width: 1000px"></div> -->
+
+
 </template>
 
 <script>
@@ -57,7 +57,6 @@ export default {
 };
 </script>
 
-</script>
 
 <style>
 
