@@ -11,6 +11,7 @@ import DishesForm from './components/DishesForm';
 import DishesGrid from './components/DishesGrid';
 import DishDetail from './components/DishDetail';
 import DishesList from './components/DishesList';
+import DishMap from './'
 import DishService from './services/DishService'
 
 
