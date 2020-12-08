@@ -11,7 +11,18 @@
 		</div>
 		<div class="formWrap">
 			<label for="region">Region:</label>
-			<input type="text" id="region" v-model="region" />
+			<select name="region" id="region" v-model="region">
+				<option disabled value="">Select a region</option>
+				<option value="gb-sct">Scotland</option>
+				<option value="gb-eng">England</option>
+				<option value="gb-nir">N. Ireland</option>
+				<option value="gb-wls">Wales</option>
+			</select>
+			<!-- <input type="text" id="region" v-model="region" /> -->
+		</div>
+		<div class="formWrap">
+			<label for="image">Image URL:</label>
+			<input type="text" id="image" v-model="image_url" />
 		</div>
 		<input class="submitbutton" type="submit" value="Save" id="save"/>
 	</form>
@@ -26,7 +37,8 @@ export default {
 		return {
 			name: '',
 			description: '',
-			region: ''
+			region: '',
+			image_url: ''
 		}
 	},
 	methods: {
@@ -34,11 +46,12 @@ export default {
 			const payload = {
 				name: this.name,
 				description: this.description,
-				region: this.region
+				region: this.region,
+				image_url: this.image_url
 			};
 
 			eventBus.$emit('submit-dish', payload);
-			this.name = this.description = this.region = ''
+			this.name = this.description = this.region = this.image_url = ''
 		}
 	}
 }
