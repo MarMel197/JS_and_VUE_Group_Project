@@ -3,7 +3,7 @@
 
     <header class="header">Best British Bites!</header>
     <dishes-form id="dishes-form"/>
-    <chart id="uk"></chart>
+    <chart id="uk" ></chart>
     <br>
     <dishes-grid :dishes="dishes"/>
 
@@ -36,7 +36,8 @@ export default {
   data() {
     return {
       dishes: [],
-      selectedDish: null
+      selectedDish: null,
+      point: {}
 
     };
   },
@@ -55,36 +56,51 @@ export default {
           this.dishes.splice(index, 1);
         });
     });
+
+    // eventBus on 'region-selected' 
+    eventBus.$on("region-selected", dish => {
+      this.getScottishFoods = dish
+      });
     
     eventBus.$on("dish-selected", dish => (this.selectedDish = dish));
-    //     eventBus.$on('dish-selected', (dish) => {
-    //   this.selectedDish = dish;
-    // }); 
+
   },
   methods: {
     fetchdishes() {
       DishService.getDishes()
-        .then(dishes => this.dishes = dishes);
-    }
-  },
-
+        .then((dishes) => {
+          this.dishes = dishes
+          // this.dishes = this.getScottishFoods() needed in the event bus $on
+          // this.dishes = this.getEnglishFoods()
+          });
+    },
     getScottishFoods() {
-      const scottishFoods = menu.filter(function(dish) {
+      return this.dishes.filter(function(dish) {
         return dish.region === "gb-sct"
       });
     },
 
     getEnglishFoods() {
-      const englishFoods = menu.filter(function(dish) {
+      return this.dishes.filter(function(dish) {
         return dish.region === "gb-eng"
       });
     },
 
     getIrishFoods() {
-      const irishFoods = menu.filter(function(dish) {
+      return this.dishes.filter(function(dish) {
         return dish.region === "gb-nir"
       });
     },
+
+    getWelshFoods() {
+      return this.dishes.filter(function(dish) {
+        return dish.region === "gb-wls"
+      });
+    }
+
+  },
+
+
 
     handler() {
       var args = arguments;
