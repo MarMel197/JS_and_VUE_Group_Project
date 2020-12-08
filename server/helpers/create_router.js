@@ -24,6 +24,9 @@ const createRouter = function(collection) {
 
   router.post('/', (req, res) => {
     const newData = req.body;
+    // Use an object
+    // {"England": "gb-eng"}
+    // newData["region_code"] = 
     collection
     .insertOne(newData)
     .then((result) => {

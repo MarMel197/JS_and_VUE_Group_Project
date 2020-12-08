@@ -35,6 +35,7 @@ export default {
   },
   data() {
     return {
+      data: [],
       dishes: [],
       selectedDish: null,
       point: {}
@@ -58,19 +59,8 @@ export default {
     });
 
     eventBus.$on("region-selected", region_code => {
-      if (region_code === "gb-sct") {
-        this.dishes = this.getScottishFoods();
-      }
-      else if (region_code === "gb-eng") {
-        this.dishes = this.getEnglishFoods();
-        }
-      else if (region_code === "gb-nir") {
-        this.dishes = this.getIrishFoods();
-      }
-      else if (region_code === "gb-wls") {
-        this.dishes = this.getWelshFoods();
-      }
-      else return null
+      console.log("region", region_code);
+        this.filterFoodsByRegion(region_code)
       });
     
     eventBus.$on("dish-selected", dish => (this.selectedDish = dish));
@@ -80,34 +70,36 @@ export default {
     fetchdishes() {
       DishService.getDishes()
         .then((dishes) => {
-          this.dishes = dishes
+          this.data = dishes
           // this.dishes = this.getScottishFoods() needed in the event bus $on
           // this.dishes = this.getEnglishFoods()
           });
     },
-    getScottishFoods() {
-      return this.dishes.filter(function(dish) {
-        return dish.region === "gb-sct"
+    filterFoodsByRegion(region) {
+      const filteredFoods = this.data.filter(function(dish) {
+        return dish.region === region
       });
+      console.log(filteredFoods);
+      this.dishes = filteredFoods
     },
 
-    getEnglishFoods() {
-      return this.dishes.filter(function(dish) {
-        return dish.region === "gb-eng"
-      });
-    },
+    // getEnglishFoods() {
+    //   return this.dishes.filter(function(dish) {
+    //     return dish.region === "gb-eng"
+    //   });
+    // },
 
-    getIrishFoods() {
-      return this.dishes.filter(function(dish) {
-        return dish.region === "gb-nir"
-      });
-    },
+    // getIrishFoods() {
+    //   return this.dishes.filter(function(dish) {
+    //     return dish.region === "gb-nir"
+    //   });
+    // },
 
-    getWelshFoods() {
-      return this.dishes.filter(function(dish) {
-        return dish.region === "gb-wls"
-      });
-    }
+    // getWelshFoods() {
+    //   return this.dishes.filter(function(dish) {
+    //     return dish.region === "gb-wls"
+    //   });
+    // }
 
   },
 
