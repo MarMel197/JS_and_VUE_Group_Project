@@ -8,9 +8,6 @@
       <p><i><b>See Info</b></i></p>
       <span v-if="hover">{{dish.description}} <p><p>{{ dish.origin }}</p><img class="image" :src="dish.image_url "/> </p></span>
     </span>
-
-  
-    
     <button v-on:click="handleDelete(dish._id)">Delete dish</button>
   </div>
 </template>
@@ -19,16 +16,12 @@ import { eventBus } from "../main";
 export default {
   name: "dish",
   props: ["dish"],
-//   filters: {
-//     formatDate(value) {
-//       return new Date(value).toLocaleString().substring(0, 10);
-//     }
-//   },
-data(){
+
+  data(){
   return {
-hover: false,
-  }
-},
+    hover: false,
+    }
+  },
   methods: {
     handleDelete(id) {
       eventBus.$emit('delete-dish', id);

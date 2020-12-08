@@ -13,7 +13,6 @@
 			<label for="origin">Origin:</label>
 			<input type="text" id="origin" v-model="origin" />
 		</div>
-
 		<input class="submitbutton" type="submit" value="Save" id="save"/>
 	</form>
 </template>
@@ -63,14 +62,14 @@ form {
 }
 
 .submitbutton {
-	  font-family: 'Schoolbell', cursive;
+	font-family: 'Schoolbell', cursive;
 	color: #fff;
 	border: none;
 	font-size: 16px;
 	padding: 8px;
 	margin-top: 10px;
 	background: #2c9609;
-  border-radius: 5px;
+	border-radius: 5px;
 }
 
 label {

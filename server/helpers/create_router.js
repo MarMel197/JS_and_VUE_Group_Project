@@ -5,6 +5,11 @@ const createRouter = function(collection) {
 
   const router = express.Router();
 
+  router.get('/filter-by-region/:region', (req, res) =>{
+    region = params.region
+    // Figure out how to get data from mongo based on region
+  })
+
   router.get('/', (req, res) => {
     collection
     .find()

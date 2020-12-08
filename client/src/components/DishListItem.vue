@@ -12,7 +12,6 @@ export default {
             eventBus.$emit('dish-selected', this.dish)
         }
     }
-
 }
 </script>
 

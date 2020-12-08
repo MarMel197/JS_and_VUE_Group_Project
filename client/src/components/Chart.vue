@@ -8,7 +8,7 @@
 
 <script>
 import Britian from '@highcharts/map-collection/countries/gb/custom/gb-countries.geo.json'
-
+import { eventBus } from '@/main';
 
 export default {
     data() {
@@ -32,16 +32,6 @@ export default {
         colorAxis: {
             min: 0
         },
-        // series: {
-        //       cursor: 'pointer',
-        //       point: {
-        //         events: {
-        //           click: ({point}) => {
-        //               console.log("Ive been clicked");
-        //           }
-        //         }
-        //       }
-        //     },
         series: [{
             name: null,
             states: {
@@ -51,7 +41,7 @@ export default {
             },
             events: {
                 click: ({point}) => {
-                    eventBus.$emit('region-selected'); //create event bus emit and pass point["hc-key"]
+                    eventBus.$emit('region-selected', point["hc-key"]); 
                 }
             },
         dataLabels: {
@@ -64,12 +54,11 @@ export default {
             ['gb-wls', 0],
             ['gb-sct', 0],
             ['gb-nir', 0]
-          ]
+        ]
         }]
       },
-      
     };
-  }
+    }
 };
 </script>
 

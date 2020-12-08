@@ -57,9 +57,20 @@ export default {
         });
     });
 
-    // eventBus on 'region-selected' 
-    eventBus.$on("region-selected", dish => {
-      this.getScottishFoods = dish
+    eventBus.$on("region-selected", region_code => {
+      if (region_code === "gb-sct") {
+        this.dishes = this.getScottishFoods();
+      }
+      else if (region_code === "gb-eng") {
+        this.dishes = this.getEnglishFoods();
+        }
+      else if (region_code === "gb-nir") {
+        this.dishes = this.getIrishFoods();
+      }
+      else if (region_code === "gb-wls") {
+        this.dishes = this.getWelshFoods();
+      }
+      else return null
       });
     
     eventBus.$on("dish-selected", dish => (this.selectedDish = dish));
@@ -102,11 +113,11 @@ export default {
 
 
 
-    handler() {
-      var args = arguments;
-      for (var arg of args) {
-        if (arg instanceof Function) {
-          arg();
+  handler() {
+    var args = arguments;
+    for (var arg of args) {
+      if (arg instanceof Function) {
+        arg();
         }
       }
     }
