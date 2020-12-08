@@ -35,7 +35,8 @@ export default {
 
 <style lang="css" scoped>
 .dish {
-	width: 30%;
+	width: 50%;
+
 	background: rgba(255, 255, 255, 0.7);
 	margin-bottom: 20px;
 	padding: 25px;

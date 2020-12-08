@@ -2,11 +2,17 @@
   <div id="app">
 
     <header class="header">Best British Bites!</header>
-    <chart id="uk" ></chart>
-    <br>
     <dishes-form id="dishes-form"/>
     <br>
+    <div id="chartgrid">
+    <br>
+    <chart id="uk" ></chart>
+    <br>
     <dishes-grid :dishes="dishes"/>
+    </div>
+    
+    
+    
 
   </div>
 </template>
@@ -137,10 +143,15 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  margin: 70px
 }
 
 #dishes-form {
     /* display: flex; */
+}
+
+#chartgrid {
+  display: flex;
 }
 
 
