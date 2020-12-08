@@ -6,9 +6,21 @@ const createRouter = function(collection) {
   const router = express.Router();
 
   router.get('/filter-by-region/:region', (req, res) =>{
-    region = params.region
+    const region = req.params.region;
+    collection
+    .find({ region: region })
+    .toArray()
+    .then((doc) => res.json(doc))
+    .catch((err) => {
+      console.error(err);
+      res.status(500);
+      res.json({ status: 500, error: err });
+    });
+  });
+    
+
     // Figure out how to get data from mongo based on region
-  })
+
 
   router.get('/', (req, res) => {
     collection
@@ -24,9 +36,6 @@ const createRouter = function(collection) {
 
   router.post('/', (req, res) => {
     const newData = req.body;
-    // Use an object
-    // {"England": "gb-eng"}
-    // newData["region_code"] = 
     collection
     .insertOne(newData)
     .then((result) => {

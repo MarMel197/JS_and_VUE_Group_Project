@@ -33,7 +33,7 @@ export default {
             min: 0
         },
         series: [{
-            name: null,
+            name: "British Best Bites",
             states: {
             hover: {
             color: '#BADA55'
@@ -51,9 +51,9 @@ export default {
         allAreas: true,
         data: [
             ['gb-eng', 0],
-            ['gb-wls', 0],
-            ['gb-sct', 0],
-            ['gb-nir', 0]
+            ['gb-wls', 1],
+            ['gb-sct', 2],
+            ['gb-nir', 3]
         ]
         }]
       },

@@ -10,8 +10,8 @@
 			<input type="text" id="description" v-model="description" />
 		</div>
 		<div class="formWrap">
-			<label for="origin">Origin:</label>
-			<input type="text" id="origin" v-model="origin" />
+			<label for="region">Region:</label>
+			<input type="text" id="region" v-model="region" />
 		</div>
 		<input class="submitbutton" type="submit" value="Save" id="save"/>
 	</form>
@@ -26,7 +26,7 @@ export default {
 		return {
 			name: '',
 			description: '',
-			origin: ''
+			region: ''
 		}
 	},
 	methods: {
@@ -34,11 +34,11 @@ export default {
 			const payload = {
 				name: this.name,
 				description: this.description,
-				origin: this.origin
+				region: this.region
 			};
 
 			eventBus.$emit('submit-dish', payload);
-			this.name = this.description = this.origin = ''
+			this.name = this.description = this.region = ''
 		}
 	}
 }
@@ -51,9 +51,9 @@ h2 {
 }
 
 form {
-	/* display: flex;
-	justify-content: space-evenly; */
-	width: 25%;
+	display: flex;
+	justify-content: space-evenly;
+	width: 60%;
 	margin: 0 auto;
 	background: rgba(255, 255, 255, 0.7);
 	padding: 20px;

@@ -2,8 +2,9 @@
   <div id="app">
 
     <header class="header">Best British Bites!</header>
-    <dishes-form id="dishes-form"/>
     <chart id="uk" ></chart>
+    <br>
+    <dishes-form id="dishes-form"/>
     <br>
     <dishes-grid :dishes="dishes"/>
 
@@ -43,7 +44,7 @@ export default {
     };
   },
 	mounted() {
-    this.fetchdishes();
+    // this.fetchdishes();
 
     eventBus.$on('submit-dish', payload => {
       DishService.postDish(payload)
@@ -59,29 +60,28 @@ export default {
     });
 
     eventBus.$on("region-selected", region_code => {
-      console.log("region", region_code);
-        this.filterFoodsByRegion(region_code)
+      console.log(region_code);
+      DishService.getFilteredDishes(region_code)
+        .then(dishes => this.dishes = dishes)
       });
     
     eventBus.$on("dish-selected", dish => (this.selectedDish = dish));
 
   },
   methods: {
-    fetchdishes() {
-      DishService.getDishes()
-        .then((dishes) => {
-          this.data = dishes
-          // this.dishes = this.getScottishFoods() needed in the event bus $on
-          // this.dishes = this.getEnglishFoods()
-          });
-    },
-    filterFoodsByRegion(region) {
-      const filteredFoods = this.data.filter(function(dish) {
-        return dish.region === region
-      });
-      console.log(filteredFoods);
-      this.dishes = filteredFoods
-    },
+    // fetchdishes() {
+    //   DishService.getDishes()
+    //     .then((dishes) => {
+    //       this.data = dishes
+    //       });
+    // },
+    // filterFoodsByRegion(region) {
+    //   const filteredFoods = this.data.filter(function(dish) {
+    //     return dish.region === region
+    //   });
+    //   console.log(filteredFoods);
+    //   this.dishes = filteredFoods
+    // },
 
     // getEnglishFoods() {
     //   return this.dishes.filter(function(dish) {
@@ -100,7 +100,6 @@ export default {
     //     return dish.region === "gb-wls"
     //   });
     // }
-
   },
 
 

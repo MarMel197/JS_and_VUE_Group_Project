@@ -17,6 +17,11 @@ export default {
       .then(res => res.json());
   },
 
+  getFilteredDishes(region_code) {
+    return fetch(`${baseURL}/filter-by-region/${region_code}`)
+    .then(res => res.json());
+  },
+
   updateDish(dish) {
     return fetch(baseURL + dish._id, {
       method: 'PUT',
