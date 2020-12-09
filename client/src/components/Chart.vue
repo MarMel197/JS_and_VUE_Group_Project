@@ -1,10 +1,8 @@
 <template>
 <div>
-    <highcharts id="container"  :constructorType="'mapChart'" class="hc" :options="chartOptions" ref="chart"></highcharts>
+    <highcharts id="container" :constructorType="'mapChart'" class="hc" :options="chartOptions" ref="chart"></highcharts>
 </div>
-
 </template>
-
 
 <script>
 import Britian from '@highcharts/map-collection/countries/gb/custom/gb-countries.geo.json'
@@ -26,8 +24,7 @@ export default {
         mapNavigation: {
             enabled: true,
             buttonOptions: {
-            alignTo: 'spacingBox'
-        }
+            alignTo: 'spacingBox'}
         },
         colorAxis: {
             min: 0
@@ -39,11 +36,11 @@ export default {
             color: '#BADA55'
             }
             },
-            events: {
-                click: ({point}) => {
-                    eventBus.$emit('region-selected', point["hc-key"]); 
-                }
-            },
+        events: {
+            click: ({point}) => {
+                eventBus.$emit('region-selected', point["hc-key"]); 
+            }
+        },
         dataLabels: {
             enabled: true,
             format: '{point.name}'
@@ -56,7 +53,7 @@ export default {
             ['gb-nir', 3]
         ]
         }]
-      },
+    },
     };
     }
 };
