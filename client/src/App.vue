@@ -10,8 +10,10 @@
     <br>
     <dishes-grid :dishes="dishes"/>
     </div>
-    
-    
+    <div id="modal-component">
+      <food-modal :selectedDish="selectedDish"></food-modal>
+      <!-- <button v-on:click="$modal.show('food-modal-example')">FOOD MODAL</button> -->
+    </div>
     
 
   </div>
@@ -21,14 +23,9 @@
 import { eventBus } from './main';
 import DishesForm from './components/DishesForm';
 import DishesGrid from './components/DishesGrid';
-import DishDetail from './components/DishDetail';
-import DishesList from './components/DishesList';
 import Chart from "./components/Chart";
+import FoodModal from "./components/FoodModal";
 import DishService from './services/DishService'
-
-
-
-
 
 
 
@@ -37,15 +34,15 @@ export default {
   components: {
     'dishes-form': DishesForm,
     'dishes-grid': DishesGrid,
-    'dishes-list': DishesList,
-    'chart': Chart
+    'chart': Chart,
+    'food-modal': FoodModal
   },
   data() {
     return {
       data: [],
       dishes: [],
       selectedDish: null,
-      point: {}
+      point: {},
 
     };
   },
@@ -71,10 +68,16 @@ export default {
         .then(dishes => this.dishes = dishes)
       });
     
-    eventBus.$on("dish-selected", dish => (this.selectedDish = dish));
+    eventBus.$on("dish-selected", dish => {
+      this.selectedDish = dish
+      this.$modal.show('food-modal-example')
+      
+    });
 
   },
   methods: {
+    
+    // }
     // fetchdishes() {
     //   DishService.getDishes()
     //     .then((dishes) => {
@@ -106,7 +109,7 @@ export default {
     //     return dish.region === "gb-wls"
     //   });
     // }
-  },
+  
 
 
 
@@ -118,7 +121,8 @@ export default {
         }
       }
     }
-  };
+  }
+}
 </script>
 
 <style>
