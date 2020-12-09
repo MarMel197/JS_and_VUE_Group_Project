@@ -1,7 +1,7 @@
 <template lang="html">
   <div class="dish">
-    <h2>{{ dish.name }}</h2>
-    <span
+    <button v-on:click="displayInfo(dish._id)">{{ dish.name }}</button>
+    <!-- <span
       @mouseover="hover = true"
       @mouseleave="hover = false"
     >
@@ -9,9 +9,9 @@
       <span v-if="hover">{{dish.description}} <p><p>{{ dish.origin }}</p><img class="image" :src="dish.image_url "/> </p></span>
     </span>
     <!-- new -->
-    <button v-on:click="displayInfo(dish._id)">Display Info </button>
+    <!-- <button v-on:click="displayInfo(dish._id)">Display Info </button>
 
-    <button v-on:click="handleDelete(dish._id)">Delete dish</button>
+    <button v-on:click="handleDelete(dish._id)">Delete dish</button>  -->
   </div>
 </template>
 <script>

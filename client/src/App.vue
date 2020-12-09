@@ -11,7 +11,7 @@
     <dishes-grid :dishes="dishes"/>
     </div>
     <div id="modal-component">
-      <food-modal :selectedDish="selectedDish"></food-modal>
+      <food-modal v-if="selectedDish" :selectedDish="selectedDish"></food-modal>
       <!-- <button v-on:click="$modal.show('food-modal-example')">FOOD MODAL</button> -->
     </div>
     
@@ -59,6 +59,7 @@ export default {
         .then(() => {
           const index = this.dishes.findIndex(dish => dish._id === id);
           this.dishes.splice(index, 1);
+          this.selectedDish = null
         });
     });
 
