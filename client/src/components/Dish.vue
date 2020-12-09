@@ -8,6 +8,9 @@
       <p><i><b>See Info</b></i></p>
       <span v-if="hover">{{dish.description}} <p><p>{{ dish.origin }}</p><img class="image" :src="dish.image_url "/> </p></span>
     </span>
+    <!-- new -->
+    <button v-on:click="displayInfo(dish._id)">Display Info </button>
+
     <button v-on:click="handleDelete(dish._id)">Delete dish</button>
   </div>
 </template>
