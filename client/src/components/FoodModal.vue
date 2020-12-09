@@ -1,7 +1,10 @@
 <template >
-<modal class="modal" name="food-modal-example" :min-width="200"
-    :min-height="200"
-    :resizable="true"
+<modal class="modal" name="food-modal-example" :min-height="200"
+    :min-width="200"
+    :scrollable="true"
+    :reset="true"
+    width="40%"
+    height="auto"
     styles="font-style: italic;">
 
     <div class="modal" >
@@ -10,7 +13,7 @@
         <p><b>Region:</b> {{selectedDish.origin}}</p>
         <img class="image" :src="selectedDish.image_url "/>
         <br>
-        <button v-on:click="handleDelete(selectedDish._id)">Delete dish</button>
+        <button id="delete-button" v-on:click="handleDelete(selectedDish._id)">Delete dish</button>
     </div>
 
 </modal>
@@ -37,15 +40,20 @@ export default {
 
 <style>
 .image {
-  height: 100px;
+  height: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
 }
 
 .modal {
     box-sizing: border-box;
     padding: 10px;
-    font-size: 13px;
+    font-size: 18px;
     line-height: 1.5;
     overflow: auto;
+    /* max-height: calc(100vh - 200px); */
+    /* overflow-y: auto; */
 }
 
 button {
@@ -57,6 +65,12 @@ button {
 	margin-top: 10px;
 	background: #F55536;
     border-radius: 5px;
+}
+
+#delete-button {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
 }
 
 

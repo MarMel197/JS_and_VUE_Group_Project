@@ -1,7 +1,8 @@
 <template>
   <div id="app">
-
-    <header class="header">Best British Bites!</header>
+    <dishes-header title="Best British Bites!" />
+    <!-- <header class="header">Best British Bites!</header> -->
+    <h3>Explore the best regional dishes in the UK and add your own!</h3>
     <dishes-form id="dishes-form"/>
     <br>
     <div id="chartgrid">
@@ -25,6 +26,7 @@ import DishesForm from './components/DishesForm';
 import DishesGrid from './components/DishesGrid';
 import Chart from "./components/Chart";
 import FoodModal from "./components/FoodModal";
+import DishesHeader from "@/components/DishesHeader";
 import DishService from './services/DishService'
 
 
@@ -32,6 +34,7 @@ import DishService from './services/DishService'
 export default {
   name: 'app',
   components: {
+    'dishes-header': DishesHeader,
     'dishes-form': DishesForm,
     'dishes-grid': DishesGrid,
     'chart': Chart,
@@ -131,20 +134,13 @@ html {
   height: 100%;
 }
 
-.header {
-    font-family: 'Schoolbell', cursive;
-    margin: 10px;
-    padding: 30px;
-    text-align: center;
-    color: rgb(11, 86, 133);
-    font-size: 60px;
-}
+
 
 
 body {
   font-family: 'Schoolbell', cursive;
   height: 100%;
-  background-color: rgba(197, 244, 255, 0.536);
+  /* background-color: rgb(30, 15, 124); */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -157,6 +153,10 @@ body {
 
 #chartgrid {
   display: flex;
+}
+
+h3 {
+  text-align: center;
 }
 
 

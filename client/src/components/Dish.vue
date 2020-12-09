@@ -38,11 +38,9 @@ export default {
 
 <style lang="css" scoped>
 .dish {
-	width: 50%;
-
-	background: rgba(255, 255, 255, 0.7);
-	margin-bottom: 20px;
-	padding: 25px;
+	/* width: 50%; */
+	margin-bottom: 5px;
+	padding: 10px;
   border-radius: 5px;
 }
 
@@ -53,7 +51,7 @@ button {
 	font-size: 16px;
 	padding: 8px;
 	margin-top: 10px;
-	background: #F55536;
+	background: #214aeb;
   border-radius: 5px;
 }
 

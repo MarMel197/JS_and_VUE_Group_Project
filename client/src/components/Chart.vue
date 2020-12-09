@@ -62,11 +62,11 @@ export default {
 <style>
 
 #container {
-    height: 800px; 
-    min-width: 600px; 
-    max-width: 600px; 
+    height: 1000px; 
+    min-width: 800px; 
+    max-width: 800px; 
     margin: 0 auto; 
-    padding: 20px;
+    /* padding: 50px; */
 }
 .loading {
     margin-top: 10em;
