@@ -1,6 +1,6 @@
 <template lang="html">
 	<form id="dishes-form" v-on:submit.prevent="handleSubmit">
-		<h2>Add a Dish</h2>
+		<h2>Add your own dish!</h2>
 		<div class="formWrap">
 			<label for="name">Name:</label>
 			<input type="text" id="name" v-model="name" />
@@ -68,10 +68,11 @@ form {
 	justify-content: space-evenly;
 	width: 60%;
 	margin: 0 auto;
-	background: rgba(255, 255, 255, 0.7);
+	background: rgba(175, 220, 255, 0.392);
 	padding: 20px;
-	margin-bottom: 40px;
+	margin-bottom: 0px;
 	align-items: center;
+	border-radius: 5px;
 }
 
 .submitbutton {

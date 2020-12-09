@@ -20,9 +20,6 @@ export default {
 
 <style lang="css" scoped>
 #dishesGrid {
-	/* display: flex;
-	flex-wrap: wrap;
-	justify-content: space-evenly; */
-
+	margin-top: 70px;
 }
 </style>

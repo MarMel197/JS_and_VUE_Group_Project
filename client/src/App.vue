@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <dishes-header title="Best British Bites!" />
+    <dishes-header title="Best British Bites!"/>
     <!-- <header class="header">Best British Bites!</header> -->
     <h3>Explore the best regional dishes in the UK and add your own!</h3>
     <dishes-form id="dishes-form"/>
@@ -134,30 +134,24 @@ html {
   height: 100%;
 }
 
-
-
-
 body {
   font-family: 'Schoolbell', cursive;
   height: 100%;
   /* background-color: rgb(30, 15, 124); */
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  margin: 70px
-}
-
-#dishes-form {
-    /* display: flex; */
+  margin: 0px;
 }
 
 #chartgrid {
   display: flex;
+  align-items: flex-start;
 }
 
 h3 {
   text-align: center;
 }
 
+#uk {
+  margin: 70px;
+}
 
 </style>
