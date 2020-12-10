@@ -1,8 +1,6 @@
 <template lang="html">
 	<div id="dishesGrid">
-
 			<dish v-for="dish, index in dishes" :key="index" :dish="dish" />
-
 	</div>
 </template>
 

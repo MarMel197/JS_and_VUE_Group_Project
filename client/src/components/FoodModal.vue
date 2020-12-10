@@ -9,8 +9,8 @@
 
     <div class="modal" >
         <h2>{{selectedDish.name}}</h2>
-        <p><b>Description:</b> {{selectedDish.description}}</p>
         <p><b>Region:</b> {{selectedDish.origin}}</p>
+        <p><b>Description:</b> {{selectedDish.description}}</p>
         <img class="image" :src="selectedDish.image_url "/>
         <br>
         <button id="delete-button" v-on:click="handleDelete(selectedDish._id)">Delete dish</button>
@@ -52,8 +52,6 @@ export default {
     font-size: 18px;
     line-height: 1.5;
     overflow: auto;
-    /* max-height: calc(100vh - 200px); */
-    /* overflow-y: auto; */
 }
 
 button {

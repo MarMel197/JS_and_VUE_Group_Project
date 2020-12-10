@@ -1,22 +1,18 @@
 <template>
   <div id="app">
     <dishes-header title="Best British Bites!"/>
-    <!-- <header class="header">Best British Bites!</header> -->
     <h3>Explore the best regional dishes in the UK and add your own!</h3>
-    <dishes-form id="dishes-form"/>
+        <dishes-form id="dishes-form"/>
     <br>
-    <div id="chartgrid">
+        <div id="chartgrid">
     <br>
-    <chart id="uk" ></chart>
+        <chart id="uk" ></chart>
     <br>
-    <dishes-grid :dishes="dishes"/>
+        <dishes-grid :dishes="dishes"/>
     </div>
     <div id="modal-component">
       <food-modal v-if="selectedDish" :selectedDish="selectedDish"></food-modal>
-      <!-- <button v-on:click="$modal.show('food-modal-example')">FOOD MODAL</button> -->
     </div>
-    
-
   </div>
 </template>
 
@@ -45,13 +41,10 @@ export default {
       data: [],
       dishes: [],
       selectedDish: null,
-      point: {},
-
     };
   },
 	mounted() {
-    // this.fetchdishes();
-
+  
     eventBus.$on('submit-dish', payload => {
       DishService.postDish(payload)
 		.then(dish => this.dishes.push(dish));
@@ -75,48 +68,10 @@ export default {
     eventBus.$on("dish-selected", dish => {
       this.selectedDish = dish
       this.$modal.show('food-modal-example')
-      
     });
-
   },
   methods: {
     
-    // }
-    // fetchdishes() {
-    //   DishService.getDishes()
-    //     .then((dishes) => {
-    //       this.data = dishes
-    //       });
-    // },
-    // filterFoodsByRegion(region) {
-    //   const filteredFoods = this.data.filter(function(dish) {
-    //     return dish.region === region
-    //   });
-    //   console.log(filteredFoods);
-    //   this.dishes = filteredFoods
-    // },
-
-    // getEnglishFoods() {
-    //   return this.dishes.filter(function(dish) {
-    //     return dish.region === "gb-eng"
-    //   });
-    // },
-
-    // getIrishFoods() {
-    //   return this.dishes.filter(function(dish) {
-    //     return dish.region === "gb-nir"
-    //   });
-    // },
-
-    // getWelshFoods() {
-    //   return this.dishes.filter(function(dish) {
-    //     return dish.region === "gb-wls"
-    //   });
-    // }
-  
-
-
-
   handler() {
     var args = arguments;
     for (var arg of args) {
@@ -137,7 +92,6 @@ html {
 body {
   font-family: 'Schoolbell', cursive;
   height: 100%;
-  /* background-color: rgb(30, 15, 124); */
   margin: 0px;
 }
 

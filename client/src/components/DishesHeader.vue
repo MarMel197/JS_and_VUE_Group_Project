@@ -5,7 +5,7 @@
 
 <script>
 export default {
-  name: "header",
+  name: "dishes-header",
   props: ["title"]
 };
 </script>

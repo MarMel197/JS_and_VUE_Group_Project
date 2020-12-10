@@ -1,25 +1,29 @@
 <template lang="html">
 	<form id="dishes-form" v-on:submit.prevent="handleSubmit">
-		<h2>Add your own dish!</h2>
+		<h2>Add your own regional dish!</h2>
 		<div class="formWrap">
 			<label for="name">Name:</label>
 			<input type="text" id="name" v-model="name" />
 		</div>
 		<div class="formWrap">
-			<label for="description">Description:</label>
-			<input type="text" id="description" v-model="description" />
-		</div>
-		<div class="formWrap">
-			<label for="region">Region:</label>
+			<label for="region">Country:</label>
 			<select name="region" id="region" v-model="region">
-				<option disabled value="">Select a region</option>
+				<option disabled value="">Select a country</option>
 				<option value="gb-sct">Scotland</option>
 				<option value="gb-eng">England</option>
 				<option value="gb-nir">N. Ireland</option>
 				<option value="gb-wls">Wales</option>
 			</select>
-			<!-- <input type="text" id="region" v-model="region" /> -->
 		</div>
+		<div class="formWrap">
+			<label for="origin">Region:</label>
+			<input type="text" placeholder="e.g North England" id="origin" v-model="origin" />
+		</div>
+		<div class="formWrap">
+			<label for="description">Description:</label>
+			<input type="text" id="description" v-model="description" />
+		</div>
+
 		<div class="formWrap">
 			<label for="image">Image URL:</label>
 			<input type="text" id="image" v-model="image_url" />
@@ -38,6 +42,7 @@ export default {
 			name: '',
 			description: '',
 			region: '',
+			origin: '',
 			image_url: ''
 		}
 	},
@@ -45,13 +50,14 @@ export default {
 		handleSubmit() {
 			const payload = {
 				name: this.name,
-				description: this.description,
 				region: this.region,
+				description: this.description,
+				origin: this.origin,
 				image_url: this.image_url
 			};
 
 			eventBus.$emit('submit-dish', payload);
-			this.name = this.description = this.region = this.image_url = ''
+			this.name = this.description = this.region = this.image_url = this.origin = ''
 		}
 	}
 }
@@ -66,7 +72,7 @@ h2 {
 form {
 	display: flex;
 	justify-content: space-evenly;
-	width: 60%;
+	width: 80%;
 	margin: 0 auto;
 	background: rgba(175, 220, 255, 0.392);
 	padding: 20px;
