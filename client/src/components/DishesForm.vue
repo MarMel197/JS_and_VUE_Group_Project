@@ -1,5 +1,5 @@
 <template lang="html">
-	<form id="dishes-form" v-on:submit.prevent="handleSubmit">
+	<form autocomplete="off" id="dishes-form" v-on:submit.prevent="handleSubmit">
 		<h2>Add your own regional dish!</h2>
 		<div class="formWrap">
 			<label for="name">Name:</label>

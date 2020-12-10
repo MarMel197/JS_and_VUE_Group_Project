@@ -47,9 +47,9 @@ export default {
         },
         allAreas: true,
         data: [
-            ['gb-eng', 0],
-            ['gb-wls', 1],
-            ['gb-sct', 2],
+            ['gb-eng', 7],
+            ['gb-wls', 5],
+            ['gb-sct', 6],
             ['gb-nir', 3]
         ]
         }]
